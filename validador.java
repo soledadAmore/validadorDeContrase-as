@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
-
+import javax.swing.JOptionPane;
 
 
 class ArchivoContraseniasInvalidas{
@@ -71,27 +71,25 @@ class ReguladorDeContrasenias{
 		return ArchivoContraseniasInvalidas.encontrar(contrasenia);
 	}
 	
-	
 	static public void regular(String contrasenia){
 		if(!longitudValida(contrasenia))
-			System.out.println("Contraseña invalida: su contraseña es demasiado corta");
+			JOptionPane.showMessageDialog(null,"Contraseña invalida: su contraseña es demasiado corta");
 		if(!caracteresValidos(contrasenia))
-			System.out.println("Contraseña invalida: utilice caracteres validos");
+			JOptionPane.showMessageDialog(null,"Contraseña invalida: utilice caracteres validos");
 		if(doblesEspacios(contrasenia))
-			System.out.println("Contraseña invalida: Los dobles espacios no son permitidos");
+			JOptionPane.showMessageDialog(null,"Contraseña invalida: Los dobles espacios no son permitidos");
 		if(contraseniaFrecuente(contrasenia))
-			System.out.println("Contraseña invalida: su contraseña es demasiado frecuente ");
+			JOptionPane.showMessageDialog(null,"Contraseña invalida: su contraseña es demasiado frecuente ");
 		if(longitudValida(contrasenia) && caracteresValidos(contrasenia) && !doblesEspacios(contrasenia) && !contraseniaFrecuente(contrasenia))
-			System.out.println("Contraseña Valida");
-	 }
+			JOptionPane.showMessageDialog(null,"Contraseña Valida");
+	}
 }
 
 public class Validador{
 	public static void main(String[] args){
 		@SuppressWarnings("resource")
-		Scanner entrada = new Scanner(System.in);
-		System.out.println("Ingrese su contraseña");
-		String contrasenia = entrada.nextLine();
+		String contrasenia = JOptionPane.showInputDialog("Ingrese su contraseña");
 		ReguladorDeContrasenias.regular(contrasenia);	 
 	}	
 }
+
