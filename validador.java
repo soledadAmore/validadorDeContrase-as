@@ -10,8 +10,7 @@ import javax.swing.JOptionPane;
 
 
 class ArchivoContraseniasInvalidas{
-	static String direccionDelArchivo = "C:\\Users\\Oberyn\\Desktop\\Java\\validadorDeContrasenias\\src\\validadorDeContrasenias\\Contrasenias10000.txt";
-	
+		
 	public static boolean encontrar(String contraseniaInvalida) {
         boolean respuesta=false;
         File archivo = null;
@@ -19,7 +18,7 @@ class ArchivoContraseniasInvalidas{
         BufferedReader lectorPalabra = null; // lee una palabra al detectar un \n
 
           try {                                       
-             archivo = new File(direccionDelArchivo);  
+             archivo = new File("contrasenias10000.txt");  
              lectorCaracter = new FileReader (archivo);           
              lectorPalabra = new BufferedReader(lectorCaracter);            
              String linea;
