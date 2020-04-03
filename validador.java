@@ -13,7 +13,6 @@ class ArchivoContraseniasInvalidas{
 	static String direccionDelArchivo = "C:\\Users\\Oberyn\\Desktop\\Java\\validadorDeContrasenias\\src\\validadorDeContrasenias\\Contrasenias10000.txt";
 	
 	public static boolean encontrar(String contraseniaInvalida) {
-        boolean respuesta=false;
         File archivo = null;
         FileReader lectorCaracter = null; // lee caracter a caracter
         BufferedReader lectorPalabra = null; // lee una palabra al detectar un \n
@@ -74,13 +73,13 @@ class ReguladorDeContrasenias{
 	
 	static public void regular(String contrasenia){
 		if(!longitudValida(contrasenia))
-			mensaje += "su contraseña es demasiado corta\n";
+			mensaje += "Su contraseña es demasiado corta\n";
 		if(!caracteresValidos(contrasenia))
-			mensaje += "utilice caracteres validos\n";
+			mensaje += "Utilice caracteres validos\n";
 		if(doblesEspacios(contrasenia))
 			mensaje += "Los dobles espacios no son permitidos\n";
 		if(contraseniaFrecuente(contrasenia))
-			mensaje += "su contraseña es demasiado frecuente\n ";
+			mensaje += "Su contraseña es demasiado frecuente\n ";
 		if(longitudValida(contrasenia) && caracteresValidos(contrasenia) && !doblesEspacios(contrasenia) && !contraseniaFrecuente(contrasenia))
 			mensaje = "Contraseña Valida";
 		JOptionPane.showMessageDialog(null,mensaje);	
