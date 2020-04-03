@@ -47,6 +47,7 @@ class ArchivoContraseniasInvalidas{
 }
 class ReguladorDeContrasenias{
 	static String listaCararcteresValidos = " !\",#$%&()*+-,-./0123456789:;<=>ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`@abcdefghijklmnopqrstuvwxyz{}";
+	static String mensaje= "Contraseña invalida:\n";
 	static public boolean longitudValida(String contrasenia){
 		return contrasenia.length() >= 8;
 	}
@@ -73,21 +74,23 @@ class ReguladorDeContrasenias{
 	
 	static public void regular(String contrasenia){
 		if(!longitudValida(contrasenia))
-			JOptionPane.showMessageDialog(null,"Contraseña invalida: su contraseña es demasiado corta");
+			mensaje += "su contraseña es demasiado corta\n";
 		if(!caracteresValidos(contrasenia))
-			JOptionPane.showMessageDialog(null,"Contraseña invalida: utilice caracteres validos");
+			mensaje += "utilice caracteres validos\n";
 		if(doblesEspacios(contrasenia))
-			JOptionPane.showMessageDialog(null,"Contraseña invalida: Los dobles espacios no son permitidos");
+			mensaje += "Los dobles espacios no son permitidos\n";
 		if(contraseniaFrecuente(contrasenia))
-			JOptionPane.showMessageDialog(null,"Contraseña invalida: su contraseña es demasiado frecuente ");
+			mensaje += "su contraseña es demasiado frecuente\n ";
 		if(longitudValida(contrasenia) && caracteresValidos(contrasenia) && !doblesEspacios(contrasenia) && !contraseniaFrecuente(contrasenia))
-			JOptionPane.showMessageDialog(null,"Contraseña Valida");
+			mensaje = "Contraseña Valida";
+		JOptionPane.showMessageDialog(null,mensaje);	
+		
+			
 	}
 }
 
 public class Validador{
 	public static void main(String[] args){
-		@SuppressWarnings("resource")
 		String contrasenia = JOptionPane.showInputDialog("Ingrese su contraseña");
 		ReguladorDeContrasenias.regular(contrasenia);	 
 	}	
